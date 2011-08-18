@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      div {
+        margin: 20px;
+        font-size: 100px;
+      }
+      b {
+        display: inline-block;
+        position: relative;
+        vertical-align: bottom;
+        text-indent: -9999px;
+        margin-right: 12px;
+      }
+      b:after, b:before {
+        position: absolute;
+        display: block;
+        content: '';
+      }
+
+      .P {
+        width: 30px;
+        height: 30px;
+        border-radius: 0 30px 30px 0;
+        border: 10px solid black;
+        margin-bottom: 30px;
+      }
+      .P:after {
+        left: -10px;
+        bottom: -40px;
+        width: 10px;
+        height: 40px;
+        background: black;
+      }
+
+      .a {
+        margin-top: 30px;
+        width: 30px;
+        height: 30px;
+        border-radius: 30px;
+        border: 10px solid black;
+      }
+      .a:after {
+        left: 30px;
+        bottom: -10px;
+        width: 10px;
+        height: 30px;
+        background: black;
+      }
+
+      .b {
+        margin-top: 30px;
+        width: 28px;
+        height: 30px;
+        border-radius: 30px;
+        border: 10px solid black;
+        border-left-width: 8px;
+        top: 1px;
+      }
+      .b:after {
+        left: -10px;
+        top: -40px;
+        width: 10px;
+        height: 80px;
+        background: black;
+      }
+
+      .c {
+        margin-top: 30px;
+        width: 30px;
+        height: 30px;
+        border-radius: 30px;
+        border: 10px solid black;
+        border-right-color: transparent;
+      }
+
+      .d {
+        margin-top: 30px;
+        width: 28px;
+        height: 30px;
+        border-radius: 30px;
+        border: 10px solid black;
+        border-right-width: 8px;
+        top: 1px;
+      }
+      .d:after {
+        right: -10px;
+        top: -40px;
+        width: 10px;
+        height: 80px;
+        background: black;
+      }
+
+      .e {
+        margin: 30px 10px 0 0;
+        width: 30px;
+        height: 30px;
+        border-radius: 30px;
+        border: 10px solid black;
+        border-right-color: transparent;
+      }
+      .e:before {
+        width: 30px;
+        height: 30px;
+        top: -10px;
+        left: -10px;
+        border-radius: 30px;
+        border: 10px solid transparent;
+        border-right-color: black;
+        -moz-transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+      }
+      .e:after {
+        width: 40px;
+        height: 10px;
+        background: black;
+        top: 10px;
+        left: 0px;
+      }
+
+      .f {
+        height: 70px;
+        width: 10px;
+        border-radius: 20px 0 0;
+        border-left: 10px solid black;
+        border-top: 10px solid black;
+        margin-left: 10px;
+      }
+      .f:after {
+        height: 10px;
+        width: 25px;
+        background: black;
+        top: 20px;
+        left: -15px;
+      }
+
+      .g {
+        margin-top: 30px;
+        width: 28px;
+        height: 30px;
+        border-radius: 30px;
+        border: 10px solid black;
+        border-right-width: 8px;
+        top: 1px;
+      }
+      .g:after {
+        right: -10px;
+        top: -10px;
+        width: 10px;
+        height: 60px;
+        background: black;
+        border-top-width: 40px;
+      }
+      .g:before {
+        width: 26px;
+        height: 26px;
+        left: -8px;
+        top: 24px;
+        border-radius: 30px;
+        border: 10px solid transparent;
+        border-color: transparent black black transparent;
+        -moz-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+      }
+
+      .h {
+        width: 25px;
+        height: 25px;
+        border-radius: 25px 25px 0 0;
+        border: 10px solid black;
+        margin: 25px 10px 5px 0;
+        border-bottom-color: transparent;
+      }
+      .h:after {
+        left: -10px;
+        top: -40px;
+        width: 10px;
+        height: 80px;
+        background: black;
+      }
+      .h:before {
+        left: 25px;
+        bottom: -15px;
+        width: 10px;
+        height: 30px;
+        background: black;
+      }
+
+      .i {
+        margin-top: 30px;
+        height: 50px;
+        width: 10px;
+        background: black;
+      }
+      .i:after {
+        width: 12px;
+        height: 12px;
+        left: -1px;
+        top: -20px;
+        border-radius: 6px;
+        background: black;
+      }
+
+      .j {
+        height: 70px;
+        width: 10px;
+        border-radius: 0 0 20px 0;
+        border-right: 10px solid black;
+        border-bottom: 10px solid black;
+        top: 30px;
+      }
+      .j:after {
+        width: 12px;
+        height: 12px;
+        left: 9px;
+        top: -20px;
+        border-radius: 6px;
+        background: black;
+      }
+
+      .k {
+        width: 25px;
+        height: 80px;
+        border-left: 10px solid black;
+      }
+      .k:before {
+        width: 12px;
+        height: 30px;
+        background: black;
+        -moz-transform: skewX(45deg);
+        -webkit-transform: skewX(45deg);
+        bottom: 0;
+        left: 5px;
+      }
+      .k:after {
+        width: 12px;
+        height: 30px;
+        background: black;
+        -moz-transform: skewX(-45deg);
+        -webkit-transform: skewX(-45deg);
+        bottom: 20px;
+        left: 5px;
+      }
+
+      .l {
+        width: 10px;
+        height: 80px;
+        background: black;
+      }
+
+      .m {
+        width: 25px;
+        height: 40px;
+        border-radius: 25px 25px 0 0;
+        border: 10px solid black;
+        margin: 30px 0 0;
+        border-bottom: 0;
+        margin-right: 45px;
+      }
+      .m:before {
+        width: 10px;
+        height: 40px;
+        left: -10px;
+        top: -10px;
+        background: black;
+      }
+      .m:after {
+        width: 25px;
+        height: 40px;
+        border-radius: 25px 25px 0 0;
+        border: 10px solid black;
+        border-bottom: 0;
+        top: -10px;
+        left: 25px;
+      }
+
+      .n {
+        width: 25px;
+        height: 40px;
+        border-radius: 25px 25px 0 0;
+        border: 10px solid black;
+        margin: 30px 10px 0 0;
+        border-bottom: 0;
+      }
+      .n:before {
+        width: 10px;
+        height: 40px;
+        left: -10px;
+        top: -10px;
+        background: black;
+      }
+
+      .o {
+        width: 30px;
+        height: 30px;
+        border-radius: 30px;
+        border: 10px solid black;
+      }
+
+      .p {
+        margin-top: 30px;
+        width: 28px;
+        height: 30px;
+        border-radius: 30px;
+        border: 10px solid black;
+        border-left-width: 8px;
+        top: 1px;
+      }
+      .p:after {
+        left: -10px;
+        top: -10px;
+        width: 10px;
+        height: 80px;
+        background: black;
+      }
+
+      .q {
+        margin-top: 30px;
+        width: 28px;
+        height: 30px;
+        border-radius: 30px;
+        border: 10px solid black;
+        border-right-width: 8px;
+        top: 1px;
+      }
+      .q:after {
+        right: -10px;
+        top: -10px;
+        width: 10px;
+        height: 80px;
+        background: black;
+      }
+
+      .r {
+        height: 40px;
+        width: 20px;
+        margin-top: 30px;
+        margin-left: 2px;
+        border-radius: 30px 0 0;
+        border-left: 8px solid black;
+        border-top: 10px solid black;
+      }
+      .r:before {
+        width: 10px;
+        height: 50px;
+        left: -10px;
+        top: -10px;
+        background: black;
+      }
+
+      .s {
+        width: 15px;
+        height: 80px;
+      }
+      .s:before {
+        width: 12px;
+        height: 12px;
+        border-radius: 20px;
+        border-style: solid;
+        border-width: 10px;
+        border-color: transparent black black transparent;
+        -moz-transform: rotate(-20deg);
+        -webkit-transform: rotate(-20deg);
+        bottom: 0px;
+        left: -15px;
+      }
+      .s:after {
+        width: 12px;
+        height: 12px;
+        border-radius: 20px;
+        border-style: solid;
+        border-width: 10px;
+        border-color: black transparent transparent black;
+        bottom: 20px;
+        left: -5px;
+        -moz-transform: rotate(-20deg);
+        -webkit-transform: rotate(-20deg);
+      }
+
+      .t {
+        height: 70px;
+        width: 10px;
+        border-radius: 0 0 0 20px;
+        border-left: 10px solid black;
+        border-bottom: 10px solid black;
+        margin-left: 10px;
+      }
+      .t:after {
+        height: 10px;
+        width: 25px;
+        background: black;
+        top: 30px;
+        left: -15px;
+      }
+
+      .u {
+        width: 25px;
+        height: 40px;
+        border-radius: 0 0 25px 25px;
+        border: 10px solid black;
+        border-width: 0 8px 10px 10px;
+        margin: 30px 10px 0 0;
+        border-top: 0;
+      }
+      .u:before {
+        width: 10px;
+        height: 50px;
+        right: -10px;
+        top: 0;
+        background: black;
+      }
+
+      .v {
+        width: 47px;
+        height: 50px;
+      }
+      .v:before {
+        width: 10px;
+        height: 50px;
+        background: black;
+        -moz-transform: skewX(20deg);
+        -webkit-transform: skewX(20deg);
+        left: 10px;
+        top: 0;
+      }
+      .v:after {
+        width: 10px;
+        height: 50px;
+        background: black;
+        -moz-transform: skewX(-20deg);
+        -webkit-transform: skewX(-20deg);
+        top: 0;
+        left: 28px;
+      }
+
+      .w {
+        height: 40px;
+        width: 75px;
+      }
+      .w:before {
+        border-width: 15px 0 15px 15px;
+        border-style: solid;
+        border-color: transparent transparent black black;
+        width: 30px;
+        height: 45px;
+        -moz-transform: scaleX(.47) rotate(-45deg);
+        -webkit-transform: scaleX(.47) rotate(-45deg);
+        top: -38px;
+      }
+      .w:after {
+        border-width: 15px 0 15px 15px;
+        border-style: solid;
+        border-color: transparent transparent black black;
+        width: 30px;
+        height: 45px;
+        -moz-transform: scaleX(-.47) rotate(-45deg);
+        -webkit-transform: scaleX(-.47) rotate(-45deg);
+        top: -38px;
+        left: 30px;
+      }
+
+      .x {
+        width: 36px;
+        height: 50px;
+      }
+      .x:before {
+        width: 11px;
+        height: 50px;
+        background: black;
+        -moz-transform: skewX(35deg);
+        -webkit-transform: skewX(35deg);
+        left: 10px;
+        top: 0;
+      }
+      .x:after {
+        width: 11px;
+        height: 50px;
+        background: black;
+        -moz-transform: skewX(-35deg);
+        -webkit-transform: skewX(-35deg);
+        top: 0;
+        left: 10px;
+      }
+
+      .y {
+        width: 47px;
+        height: 50px;
+        margin-top: 30px;
+      }
+      .y:before {
+        width: 10px;
+        height: 50px;
+        background: black;
+        -moz-transform: skewX(22deg);
+        -webkit-transform: skewX(22deg);
+        left: 10px;
+        top: 0;
+      }
+      .y:after {
+        width: 10px;
+        height: 80px;
+        background: black;
+        -moz-transform: skewX(-22deg);
+        -webkit-transform: skewX(-22deg);
+        top: 0;
+        left: 24px;
+      }
+
+      .z {
+        width: 40px;
+        height: 30px;
+        border-width: 10px 0;
+        border-style: solid;
+        border-color: black;
+        margin-top: 30px;
+      }
+      .z:before {
+        width: 12px;
+        height: 30px;
+        background: black;
+        -moz-transform: skewX(-42deg);
+        -webkit-transform: skewX(-42deg);
+        left: 14px;
+        top: 0;
+      }
+
+      .bang {
+        height: 0;
+        width: 10px;
+        height: 60px;
+        background: black;
+        margin: 0 10px 20px 10px;
+      }
+      .bang:after {
+        width: 12px;
+        height: 12px;
+        left: -1px;
+        bottom: -20px;
+        border-radius: 6px;
+        background: black;
+      }
+      
+      .sp {
+        width: 20px;
+        height: 80px;
+        white-space: wrap;
+      }
+
+      /* Kern Baby Kern */
+      .b + .c,
+      .p + .q {
+        margin-left: -3px;
+      }
+      .c + .d,
+      .c + .c,
+      .c + .q,
+      .c + .o,
+      .c + .e
+      .c + .g {
+        margin-left: -10px;
+      }
+      .c + .k,
+      .c + .h {
+        margin-left: -10px;
+      }
+      .d + .e {
+        margin-left: 0px;
+      }
+      .f + .g {
+        margin-left: -10px;
+      }
+      .h + .i {
+        margin-left: 10px;
+      }
+      .i + .j {
+        margin-left: -10px;
+      }
+      .o + .w {
+        margin-left: -10px;
+      }
+      .o + .v {
+        margin-left: -7px;
+      }
+      .v + .a,
+      .v + .e,
+      .v + .o,
+      .y + .a,
+      .y + .e,
+      .y + .o {
+        margin-left: -5px;
+      }
+      .w + .n {
+        margin-left: -4px;
+      }
+      .r + .o,
+      .f + .o {
+        margin-left: -4px;
+      }
+      .a + .t,
+      .o + .t {
+        margin-left: 0px;
+      }
+      .o + .o,
+      .o + .a,
+      .e + .a,
+      .o + .g,
+      .p + .o,
+      .p + .a {
+        margin-left: -4px;
+      }
+      .k + .e,
+      .k + .o,
+      .k + .a {
+        margin-left: -5px;
+      }
+      .f + .t {
+        margin-left: -2px;
+      }
+      .t + .e,
+      .t + .o,
+      .t + .a,
+      .t + .d,
+      .t + .g,
+      .t + .q {
+        margin-left: -5px;
+      }
+      .a + .f,
+      .a + .t,
+      .o + .f,
+      .o + .t,
+      .e + .f,
+      .e + .t {
+        margin-left: -4px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div>eat your quaker oats for every meal</div>
+    <div>the quick brown fox jumps over the lazy dog</div>
+    <script>
+      var glyphDict = {
+        '32': 'sp',
+        '!': 'bang'
+      };
+      function fontify(els) {
+        for (var i=0; i<els.length; i++) {
+          var s = '';
+          var chars = els[i].firstChild.textContent.split('');
+          for (var j=0; j<chars.length; j++) {
+            var c = chars[j];
+            s += '<b class="' + (glyphDict[c.charCodeAt(0)] || c) + '">' + chars[j] + '</b>';
+          }
+          els[i].innerHTML = s;
+        }
+      }
+
+      var els = document.querySelectorAll("div");
+      fontify(els);
+    </script>
+  </body>
+</html>
