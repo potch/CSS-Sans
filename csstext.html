@@ -7,6 +7,7 @@
         font-size: 100px;
       }
       b {
+        font-size: 1em;
         display: inline-block;
         position: relative;
         vertical-align: bottom;
@@ -19,21 +20,6 @@
         content: '';
       }
 
-      .P {
-        width: 30px;
-        height: 30px;
-        border-radius: 0 30px 30px 0;
-        border: 10px solid black;
-        margin-bottom: 30px;
-      }
-      .P:after {
-        left: -10px;
-        bottom: -40px;
-        width: 10px;
-        height: 40px;
-        background: black;
-      }
-
       .a {
         margin-top: 30px;
         width: 30px;
@@ -44,9 +30,9 @@
       .a:after {
         left: 30px;
         bottom: -10px;
-        width: 10px;
+        width: 0px;
         height: 30px;
-        background: black;
+        border-right: 10px solid black;
       }
 
       .b {
@@ -61,9 +47,8 @@
       .b:after {
         left: -10px;
         top: -40px;
-        width: 10px;
         height: 80px;
-        background: black;
+        border-right: 10px solid black;
       }
 
       .c {
@@ -87,9 +72,8 @@
       .d:after {
         right: -10px;
         top: -40px;
-        width: 10px;
         height: 80px;
-        background: black;
+        border-right: 10px solid black;
       }
 
       .e {
@@ -113,8 +97,7 @@
       }
       .e:after {
         width: 40px;
-        height: 10px;
-        background: black;
+        border-top: 10px solid black;
         top: 10px;
         left: 0px;
       }
@@ -128,9 +111,8 @@
         margin-left: 10px;
       }
       .f:after {
-        height: 10px;
         width: 25px;
-        background: black;
+        border-top: 10px solid black;
         top: 20px;
         left: -15px;
       }
@@ -147,10 +129,8 @@
       .g:after {
         right: -10px;
         top: -10px;
-        width: 10px;
         height: 60px;
-        background: black;
-        border-top-width: 40px;
+        border-right: 10px solid black;
       }
       .g:before {
         width: 26px;
@@ -634,10 +614,17 @@
         margin-left: -4px;
       }
 
+      /* ligatures! */
+      .f + .i {
+        margin-left: -8px;
+      }
+      .f + .f {
+        margin-left: -8px;
+      }
+
     </style>
   </head>
   <body>
-    <div>eat your quaker oats for every meal</div>
     <div>the quick brown fox jumps over the lazy dog</div>
     <script>
       var glyphDict = {
