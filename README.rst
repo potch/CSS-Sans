@@ -18,5 +18,5 @@ TODO
 - Capitals, numerals, punctuation
 √ Make every stroke made of a border, so it can be colored with border-color
 - consolidate kerning rules
-- split up into css file, js, html harness
+√ split up into css file, js, html harness
 - plug into `lettering.js <http://letteringjs.com/>`_

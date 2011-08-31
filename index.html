@@ -21,20 +21,26 @@
       </header>
       <article>
         <h2>&ldquo;The Font You Shouldn't Use&rdquo;</h2>
-        <p>oars affect</p>
+        <p>25, or 6to4!</p>
+        <p>The Quick Brown Fox Jumps Over The Lazy Dog</p>
         <p>abcdefghijklmnopqrstuvwxyz</p>
     </div>
     <script>
       var glyphDict = {
         '32': 'sp',
+        '33': 'bang',
+        '44': 'comma'
       };
+      for (var n=0; n<10; n++) {
+        glyphDict[n+48] = 'n' + n;
+      }
       function fontify(els) {
         for (var i=0; i<els.length; i++) {
           var s = '';
           var chars = els[i].firstChild.textContent.split('');
           for (var j=0; j<chars.length; j++) {
             var c = chars[j];
-            s += '<b class="' + (glyphDict[c.charCodeAt(0)] || c) + '">' + chars[j] + '</b>';
+            s += '<b d="'+c.charCodeAt(0)+'"class="' + (glyphDict[c.charCodeAt(0)] || c) + '">' + chars[j] + '</b>';
           }
           els[i].innerHTML = s;
         }
